@@ -1,12 +1,17 @@
 ## The first function creates and caches the inversed matrix in variable ix
 ## The second function will use the product of the first function to either computer solve or use cache inversed matrix
 
-## if m is your matrix, for example, m=rbind(c(1, -1/8), c(-1/8, 1)), then
-## 1) call f <- makeCacheMatrix(m)
-## 2) then call cacheSolve(f)
+## HOW TO RUN THIS SCRIPT
+## 1) source("cachematrix.R")
+## 2) create a matrix and save is in variable m. 
+##	For example, m=rbind(c(1, -1/8), c(-1/8, 1))
+## 3) execute the following:
+##	f <- makeCacheMatrix(m)
+## 4) execute the cacheSolve function as follows:
+##	cacheSolve(f)
 
 ## the first run will force the function to compute the solve() 
-## the consequtive runs will use the cached data with message displayed "getting cached inversed matrix"
+## the consecutive runs will use the cached data with message displayed "getting cached inversed matrix"
 
 makeCacheMatrix <- function(x = matrix()) {
 	## ix is the variable for reversed x variable if x is invertible matrix
@@ -24,8 +29,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+# the following function will check if inverse matrix already exists first,
+# if not, it will create it using the solve() function 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         ix <- x$getinverse()
